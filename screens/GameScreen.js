@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, Text, Button, Alert, ScrollView, FlatList } from 'react-native';
+import { View, StyleSheet, Text, Button, Alert, ScrollView, FlatList, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -71,7 +71,7 @@ const GameScreen = props => {
                     }
                 </ScrollView> */}
                 <FlatList
-                    keyExtractor={(item) => item} 
+                    keyExtractor={(item) => item}
                     data={pastGuesses}
                     renderItem={renderListItem.bind(this, pastGuesses.length)}
                     contentContainerStyle={styles.scrollView}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        marginTop: 20,
+        marginTop: Dimensions.get('window').height > 600 ? 20 : 5,
         width: 400,
         maxWidth: '90%',
     },
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         flex: 1,
-        width: '60%',
+        width: Dimensions.get('window').width > 350 ? '60%' : '80%',
     }
 });
 export default GameScreen;
