@@ -1,13 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Colors from '../constants/colors';
+import TextBody from './TextBody';
+import TextTitle from './TextTitle';
 
 const NumberContainer = props => {
     return (
         <View style={styles.container}>
-            <Text style={styles.number}>
+            <TextBody style={styles.number}>
                 {props.children}
-            </Text>
+            </TextBody>
         </View>
     );
 };
